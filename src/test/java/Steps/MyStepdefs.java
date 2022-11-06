@@ -36,6 +36,7 @@ public class MyStepdefs {
 
     @Then("See result page")
     public void seeResultPage() {
+        System.out.println(driver.getCurrentUrl());
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
