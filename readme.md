@@ -1,0 +1,3 @@
+- Edit Configurations: Cucumber Java
+- Main class: io.cucumber.core.cli.Main
+- Glue: Steps
