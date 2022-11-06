@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="NopCommerce" parallel="tests" thread-count="1">
+    <parameter name = "url" value = "http://demo.nopcommerce.com/"/>
+
+    <test name = "Run on firefox">
+        <parameter name="browser" value="h_chrome"/>
+        <classes>
+            <class name = "testcase.google"/>
+            <!--            <class name = "demo.tiki"/>-->
+            <!--                <class name = "demo.shopee"/>-->
+
+        </classes>
+    </test>
+
+
+
+
+</suite>

@@ -1,0 +1,5 @@
+Steps\Hooks$BrowserCleanup.class
+Steps\Hooks.class
+Steps\MyStepdefs.class
+testcase\google.class
+runner\TestRunner.class
