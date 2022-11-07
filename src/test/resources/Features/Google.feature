@@ -7,13 +7,15 @@ Feature: test google search
     And Click search button
     Then See result page
 
-@Smoke
+  @Test2
+  @Smoke
   Scenario:search CMC in google
     Given open browser
     When Search "CMC"
     And Click search button
     Then See result page
 
+  @Test3
   @Smoke
   Scenario:search FPT in google
     Given open browser
@@ -21,6 +23,7 @@ Feature: test google search
     And Click search button
     Then See result page
 
+  @Test4
   @Smoke
   Scenario:search CMC in google
     Given open browser

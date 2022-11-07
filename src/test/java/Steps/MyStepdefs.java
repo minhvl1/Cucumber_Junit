@@ -18,19 +18,19 @@ public class MyStepdefs {
     @Given("open browser")
     public void openBrowser() {
         driver.get("https://www.google.com.vn/?hl=vi");
-        System.out.println("go to google");
+//        System.out.println("go to google");
     }
 
     @When("Search {string}")
     public void search(String arg0) {
         driver.findElement(By.xpath("//input[@name='q']")).sendKeys(arg0);
-        System.out.println("search "+ arg0);
+//        System.out.println("search "+ arg0);
     }
 
     @And("Click search button")
     public void clickSearchButton() {
         driver.findElement(By.xpath("//input[@name='q']")).sendKeys(Keys.RETURN);
-        System.out.println("send key enter");
+//        System.out.println("send key enter");
     }
 
     @Then("See result page")
