@@ -10,8 +10,8 @@ variables:
 build:
   stage: build
   script:
-#    - mvn $MAVEN_OPTS clean package
-     - mvn clean compile
+    - mvn $MAVEN_OPTS clean package
+    - mvn clean compile
 
 java:
   stage: test
