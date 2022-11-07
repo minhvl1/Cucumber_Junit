@@ -8,11 +8,12 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = {"pretty","junit:target/JUnitReports/report.xml",
-        "json:target/JSONReports/report.json",
-        "html:target/HtmlReports"},
+        plugin = {"pretty",
+                "junit:target/JUnitReports/report.xml",
+                "json:target/JSONReports/report.json",
+                "html:target/HtmlReports"},
         monochrome = true,
-        features = {"src/test/resources/Google.feature"},
+        features = {"src/test/resources/"},
         glue = {"Steps"}
 //        ,tags= "@scenario1"
 
