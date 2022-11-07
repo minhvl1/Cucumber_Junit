@@ -35,38 +35,13 @@
         </dependency>
 
 
-        <!-- TestNG -->
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>${testng.version}</version>
-        </dependency>
-
-
-        <dependency>
-            <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-core</artifactId>
-            <version>${serenity.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>net.serenity-bdd</groupId>
-            <artifactId>serenity-ensure</artifactId>
-            <version>${serenity.version}</version>
-        </dependency>
-
 
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
             <version>${cucumber.version}</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-testng</artifactId>
-            <version>${cucumber.version}</version>
-        </dependency>
+
 
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
         <dependency>
@@ -83,97 +58,54 @@
             <version>${cucumber.version}</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+        </dependency>
 
 
     </dependencies>
 
     <build>
-    <plugins>
-    <!--       Compiler-->
-    <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.10.1</version>
-        <!-- Compiler code vs Java 8 -->
-        <configuration>
-            <source>11</source>
-            <target>11</target>
-        </configuration>
-    </plugin>
-
-<!--        <plugin>-->
-<!--            <groupId>org.apache.maven.plugins</groupId>-->
-<!--            <artifactId>maven-surefire-plugin</artifactId>-->
-<!--            <version>3.0.0-M7</version>-->
-<!--            <configuration>-->
-<!--                <testFailureIgnore>true</testFailureIgnore>-->
-<!--                <argLine>-->
-<!--                    -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"-->
-<!--                </argLine>-->
-<!--                <suiteXmlFiles>-->
-<!--                    <suiteXmlFile>src/test/resources/run.xml</suiteXmlFile>-->
-<!--                </suiteXmlFiles>-->
-<!--            </configuration>-->
-<!--            <dependencies>-->
-<!--                <dependency>-->
-<!--                    <groupId>org.aspectj</groupId>-->
-<!--                    <artifactId>aspectjweaver</artifactId>-->
-<!--                    <version>${aspectj.version}</version>-->
-<!--                </dependency>-->
-<!--            </dependencies>-->
-<!--        </plugin>-->
-
+        <plugins>
         <plugin>
-            <groupId>net.serenity-bdd.maven.plugins</groupId>
-            <artifactId>serenity-maven-plugin</artifactId>
-            <version>${serenity.version}</version>
-            <dependencies>
-                <dependency>
-                    <groupId>net.serenity-bdd</groupId>
-                    <artifactId>serenity-single-page-report</artifactId>
-                    <version>${serenity.version}</version>
-                </dependency>
-            </dependencies>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0-M7</version>
+
+        </plugin>
+        <plugin>
+            <artifactId>maven-failsafe-plugin</artifactId>
+            <version>3.0.0-M7</version>
             <configuration>
-                <!--                    <tags>@1</tags>-->
-                <reports>single-page-html,navigator</reports>
+                <includes>
+                    <include>**/*Test.java</include>
+                    <include>**/Test*.java</include>
+                    <include>**/*TestSuite.java</include>
+                    <include>**/When*.java</include>
+                </includes>
+                <systemPropertyVariables>
+
+                </systemPropertyVariables>
             </configuration>
             <executions>
                 <execution>
-                    <id>serenity-reports</id>
-                    <phase>post-integration-test</phase>
                     <goals>
-                        <goal>aggregate</goal>
+                        <goal>integration-test</goal>
+                        <goal>verify</goal>
                     </goals>
                 </execution>
             </executions>
         </plugin>
-
-
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-surefire-plugin</artifactId>
-            <version>2.18.1</version>
-            <configuration>
-                <testFailureIgnore>true</testFailureIgnore>
-                <includes>
-                    <include>**TestRunner.java</include>
-                </includes>
-            </configuration>
-        </plugin>
-
-
-
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
-            <version>2.6</version>
-            <configuration>
-                <failOnMissingWebXml>false</failOnMissingWebXml>
-            </configuration>
-        </plugin>
-
-    </plugins>
-
+        </plugins>
     </build>
 </project>
