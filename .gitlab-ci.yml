@@ -1,0 +1,25 @@
+image: markhobson/maven-chrome:jdk-16
+    
+stages:
+  - build
+  - test
+    
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+    
+build:
+  stage: build
+  script:
+    - mvn $MAVEN_OPTS clean package
+    - mvn compile
+
+java:
+  stage: test
+  script:
+    - mvn verify
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - target/surefire-reports/TEST-*.xml
+        - target/failsafe-reports/TEST-*.xml
