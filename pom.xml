@@ -92,6 +92,7 @@
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>net.masterthought</groupId>
                 <artifactId>maven-cucumber-reporting</artifactId>
@@ -132,29 +133,7 @@
             <!--            </plugin>-->
 
 
-<!--            <plugin>-->
-<!--                <artifactId>maven-failsafe-plugin</artifactId>-->
-<!--                <version>3.0.0-M7</version>-->
-<!--                <configuration>-->
-<!--                    <includes>-->
-<!--                        <include>**/*Test.java</include>-->
-<!--                        <include>**/Test*.java</include>-->
-<!--                        <include>**/*TestSuite.java</include>-->
-<!--                        <include>**/When*.java</include>-->
-<!--                    </includes>-->
-<!--                    <systemPropertyVariables>-->
 
-<!--                    </systemPropertyVariables>-->
-<!--                </configuration>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <goals>-->
-<!--                            <goal>integration-test</goal>-->
-<!--                            <goal>verify</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
 
         </plugins>
 <!--        -->

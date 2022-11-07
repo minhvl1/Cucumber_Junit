@@ -2,9 +2,10 @@ package Steps;
 
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
+import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
+import org.junit.AfterClass;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +16,7 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.UnreachableBrowserException;
+import java.io.File;
 
 
 public class Hooks {
@@ -30,7 +32,7 @@ public class Hooks {
                 if (browser == null) {
                     browser = System.getenv("BROWSER");
                     if (browser == null) {
-                        browser = "hchrome";
+                        browser = "hedge";
                     }
                 }
 
@@ -119,6 +121,25 @@ public class Hooks {
 //            final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 //            scenario.attach(screenshot, "image/png","image"); // ... and embed it in the report.
 //    }
+
+    @Before
+    public void deleteScreenshotsFiles(){
+        try {
+            String workingDir = System.getProperty("user.dir");
+            String pathFolderextent = workingDir + "\\extentReport\\screenshots\\";
+            File file = new File(pathFolderextent);
+            File[] listOfFiles = file.listFiles();
+            System.out.println("......................"+pathFolderextent);
+            for(int i = 0; i < listOfFiles.length; i++){
+                if(listOfFiles[i].isFile()){
+                    new File(listOfFiles[i].toString()).delete();
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }
 
 
