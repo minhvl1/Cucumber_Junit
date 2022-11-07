@@ -23,7 +23,7 @@ public class MyStepdefs {
 
     @When("Search {string}")
     public void search(String arg0) {
-        driver.findElement(By.xpath("//input[@name='q1']")).sendKeys(arg0);
+        driver.findElement(By.xpath("//input[@name='q']")).sendKeys(arg0);
         System.out.println("search "+ arg0);
     }
 

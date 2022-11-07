@@ -100,17 +100,15 @@ public class Hooks {
     @After
     public void tearDown(Scenario scenario) {
         if (scenario.isFailed()) {
-            // Take a screenshot...
             final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png",scenario.getName()); // ... and embed it in the report.
         }
     }
-//    @AfterStep
-//    public void tearDownpass(Scenario scenario) {
+//        @AfterStep
+//    public void takeScreenshot(Scenario scenario) {
 //            final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-//            scenario.attach(screenshot, "image/png",scenario.getName()); // ... and embed it in the report.
+//            scenario.attach(screenshot, "image/png","image"); // ... and embed it in the report.
 //    }
-
 }
 
 
