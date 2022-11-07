@@ -11,12 +11,12 @@ build:
   stage: build
   script:
     - mvn $MAVEN_OPTS clean package
-    - mvn compile
+    - mvn clean compile
 
 java:
   stage: test
   script:
-    - mvn verify
+    - mvn clean verify
   artifacts:
     when: always
     reports:
