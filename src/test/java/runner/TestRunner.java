@@ -10,12 +10,12 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {"pretty",
                 "junit:target/JUnitReports/report.xml",
-                "json:target/JSONReports/report.json",
+//                "json:target/JSONReports/report.json",
+                "json:target/cucumber.json",
                 "html:target/HtmlReports"},
-        monochrome = true,
         features = {"src/test/resources/"},
         glue = {"Steps"}
-//        ,tags= "@scenario1"
+
 
 )
 
