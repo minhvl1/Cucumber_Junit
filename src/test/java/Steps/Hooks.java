@@ -3,6 +3,8 @@ package Steps;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Scenario;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.managers.ChromeDriverManager;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -28,7 +30,7 @@ public class Hooks {
                 if (browser == null) {
                     browser = System.getenv("BROWSER");
                     if (browser == null) {
-                        browser = "hedge";
+                        browser = "hchrome";
                     }
                 }
 
@@ -39,19 +41,25 @@ public class Hooks {
 //                        firefoxOptions.addArguments("window-size=1920x1080");
                         driver = new FirefoxDriver(firefoxOptions);
                         break;
+
                     case "hfirefox":
                         FirefoxOptions hfirefoxOptions = new FirefoxOptions();
                         hfirefoxOptions.addArguments("--headless");
                         driver = new FirefoxDriver(hfirefoxOptions);
                         break;
+
                     case "chrome":
-                        driver = new ChromeDriver();
+                        WebDriverManager.chromedriver().setup();
+                        ChromeOptions options = new ChromeOptions();
+                        options.addArguments("start-maximized");
+                        driver = new ChromeDriver(options);
                         break;
+
                     case "hchrome":
-                        ChromeOptions chromeOptions = new ChromeOptions();
-                        chromeOptions.addArguments("headless");
-                        chromeOptions.addArguments("window-size=1920x1080");
-                        driver = new ChromeDriver(chromeOptions);
+                        WebDriverManager.chromedriver().setup();
+                        ChromeOptions chromeOptionsoptions = new ChromeOptions();
+                        chromeOptionsoptions.addArguments("--headless");
+                        driver = new ChromeDriver(chromeOptionsoptions);
                         break;
 
                     case "hedge":
@@ -59,11 +67,13 @@ public class Hooks {
                         hegdeoptions.addArguments("--headless");
                         driver = new EdgeDriver(hegdeoptions);
                         break;
+
                     case "edge":
                         EdgeOptions edgeOptions = new EdgeOptions();
                         edgeOptions.addArguments("start-maximized");
                         driver = new EdgeDriver(edgeOptions);
                         break;
+
                     default:
 //                        driver = new FirefoxDriver();
                         driver = new EdgeDriver();
