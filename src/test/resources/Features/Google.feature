@@ -1,3 +1,4 @@
+@Feature1
 Feature: test google search
 
   @Test

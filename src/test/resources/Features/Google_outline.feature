@@ -1,7 +1,8 @@
+@Feature2
 Feature: test google search outline
 
   @TestOuline
-  Scenario Outline: search multiple in google
+  Scenario Outline: search <arg0> in google
     Given open browser
     When Search <arg0>
     And Click search button
