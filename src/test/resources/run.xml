@@ -5,10 +5,7 @@
     <test name = "Run on firefox">
         <parameter name="browser" value="h_chrome"/>
         <classes>
-            <class name = "testcase.google"/>
-            <!--            <class name = "demo.tiki"/>-->
-            <!--                <class name = "demo.shopee"/>-->
-
+<!--            <class name = "testcase.google"/>-->
         </classes>
     </test>
 
